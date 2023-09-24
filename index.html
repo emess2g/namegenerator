@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Generator</title>
+</head>
+<body>
+    <h1 id="nameDisplay">Generated Name:</h1>
+   
+    
+</body>
+<script>
+    // Array of sample names
+const names = ["John", "Jane", "Alice", "Bob", "Eva", "Michael", "Olivia", "William"];
+
+let intervalId; // Store the interval ID
+
+const nameDisplay = document.getElementById("nameDisplay");
+
+
+function generateRandomName() {
+    const randomIndex = Math.floor(Math.random() * names.length);
+    const randomName = names[randomIndex];
+    nameDisplay.textContent = `Generated Name: ${randomName}`;
+    intervalId = setInterval(generateRandomName, 5000);
+}
+
+generateRandomName();
+
+
+
+</script>
+</html>

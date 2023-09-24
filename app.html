@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Effect</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.typing-effect {
+    font-size: 24px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #333;
+    padding-right: 10px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 24px;
+    background-color: #333;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #333;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="typing-effect" id="typingEffect">
+        <span>Hello, </span><span class="cursor" id="cursor"></span>
+    </div>
+
+
+    
+    <script>
+        const text = "Welcome to the Typing Effect!";
+const typingSpeed = 100; // Milliseconds per character
+const cursor = document.getElementById("cursor");
+const typingEffect = document.getElementById("typingEffect");
+
+let charIndex = 0;
+
+function typeText() {
+    if (charIndex < text.length) {
+        typingEffect.innerHTML += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeText, typingSpeed);
+    } else {
+        cursor.style.display = "none"; // Hide the cursor when typing is complete
+    }
+}
+
+typeText(); // Start typing when the page loads
+
+    </script>
+</body>
+</html>
